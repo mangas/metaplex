@@ -1,11 +1,11 @@
-import { PhantomWalletMock, WindowWithPhanWalletMock } from "phan-wallet-mock";
-import debug from "debug";
 import { clusterApiUrl } from "@solana/web3.js";
+import debug from "debug";
+import { PhantomWalletMock, WindowWithPhanWalletMock } from "phan-wallet-mock";
 
 export const logInfo = debug("mp-test:info");
 export const logDebug = debug("mp-test:debug");
 
-export const MAINNET_BETA = "https://api.metaplex.solana.com";
+export const MAINNET_BETA = "https://ssc-dao.genesysgo.net/";
 export const LOCALNET = "http://localhost:8899";
 export const DEVNET = clusterApiUrl("devnet");
 
