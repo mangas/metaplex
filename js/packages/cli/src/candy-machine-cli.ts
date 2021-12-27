@@ -76,7 +76,7 @@ programCommand('upload')
   .option(
     '-s, --storage <string>',
     `Database to use for storage (${Object.values(StorageType).join(', ')})`,
-    'arweave-sol',
+    'arweave',
   )
   .option(
     '--ipfs-infura-project-id <string>',
@@ -347,14 +347,19 @@ programCommand('verify_token_metadata')
     const { number } = cmd.opts();
 
     const startMs = Date.now();
-    log.info('started at: ' + startMs.toString());
+    log.info(
+      `\n==> Starting verification: ${
+        new Date(startMs).toString().split(' G')[0]
+      }`,
+    );
     verifyTokenMetadata({ files, uploadElementsCount: number });
 
     const endMs = Date.now();
     const timeTaken = new Date(endMs - startMs).toISOString().substr(11, 8);
     log.info(
-      `ended at: ${new Date(endMs).toString()}. time taken: ${timeTaken}`,
+      `==> Verification ended: ${new Date(endMs).toString().split(' G')[0]}`,
     );
+    log.info(`Elapsed time: ${timeTaken}\n`);
   });
 
 programCommand('verify')
