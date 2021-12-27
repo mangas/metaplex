@@ -137,10 +137,12 @@ export const ArtView = () => {
                       >
                         <MetaAvatar creators={[creator]} size={64} />
                         <div>
+                           <Link to={`/artists/${creator.address}`} key={idx}>
                           <span className="creator-name">
                             {creator.name ||
                               shortenAddress(creator.address || '')}
                           </span>
+                            </Link>
                           <div style={{ marginLeft: 10 }}>
                             {!creator.verified &&
                               (creator.address === pubkey ? (
