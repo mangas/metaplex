@@ -21,9 +21,9 @@ const AuctionItemCard = ({
   const shouldShowPacks = process.env.NEXT_ENABLE_NFT_PACKS === 'true';
 
   if (shouldShowPacks) {
-    const parent = current.edition?.info?.parent;
+    const masterEdition = current.masterEdition?.pubkey;
     const voucher = Object.values(vouchers).find(
-      v => v?.info?.master === parent,
+      v => v?.info?.master === masterEdition,
     );
 
     if (voucher) {
@@ -36,7 +36,7 @@ const AuctionItemCard = ({
         <div onClick={onSelect}>
           <PackCard
             name={name}
-            voucherMetadata={current.metadata.pubkey}
+            voucherMetadata={voucher.info.metadata}
             uri={uri}
             authority={authority}
             allowedAmountToRedeem={allowedAmountToRedeem}

@@ -54,17 +54,8 @@ export const getProvingProcess = async ({
   const voucherKey = voucher.pubkey;
 
   const voucherTokenAccount = accountByMint.get(editionMint);
-
-  // Calculate already requested but not redeemed cards by summing values in cardsToRedeem
-  const alreadyRequestedCards = provingProcess?.info.cardsToRedeem
-    ? Object.values(
-        Object.fromEntries(provingProcess.info.cardsToRedeem),
-      ).reduce((a, b) => a + b)
-    : 0;
-  const redeemedCards = provingProcess?.info.cardsRedeemed || 0;
-
   const cardsLeftToOpen =
-    pack.info.allowedAmountToRedeem - redeemedCards - alreadyRequestedCards;
+    pack.info.allowedAmountToRedeem - (provingProcess?.info.cardsRedeemed || 0);
 
   if (cardsLeftToOpen === 0 && provingProcess) {
     return provingProcess;
