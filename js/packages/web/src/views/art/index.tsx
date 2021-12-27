@@ -10,7 +10,7 @@ import {
   List,
   Card,
 } from 'antd';
-import { useParams } from 'react-router-dom';
+import { useParams,  Link } from 'react-router-dom';
 import { useArt, useExtendedArt } from '../../hooks';
 
 import { ArtContent } from '../../components/ArtContent';
