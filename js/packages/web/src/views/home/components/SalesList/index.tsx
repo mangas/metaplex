@@ -30,9 +30,9 @@ export const SalesListView = () => {
   return (
     <>
       <Banner
-        src="/banner1.jpg"
-        headingText="Welcome to KREATION"
-        subHeadingText="Launching December 29th 2021."
+        src="/banner2.jpeg"
+        headingText="FEDERICO CHIESA NFT AUCTION"
+        subHeadingText="EURO 2020 TRIBUTE"
         actionComponent={<HowToBuyModal buttonClassName="secondary-btn" />}
         useBannerBg
       />
