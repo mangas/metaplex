@@ -24,9 +24,6 @@ const PackSidebar = ({ onOpenPack }: IPropsPackSidebar) => {
   const userWallet = pubkeyToString(publicKey);
   const isExhausted = provingProcess?.info.isExhausted;
 
-  const shouldEnableRedeem =
-    process.env.NEXT_ENABLE_NFT_PACKS_REDEEM === 'true';
-
   return (
     <div className="pack-view__sidebar">
       <div className="pack-view__owner">
@@ -69,9 +66,7 @@ const PackSidebar = ({ onOpenPack }: IPropsPackSidebar) => {
         </div>
       </div>
       <Divider className="divider" />
-      {shouldEnableRedeem && !isExhausted && (
-        <OpenPackButton onClick={onOpenPack} />
-      )}
+      {!isExhausted && <OpenPackButton onClick={onOpenPack} />}
       <Divider className="divider" />
       <div className="pack-view__description-block">
         <p className="pack-view__title">DETAILS</p>
